@@ -7,4 +7,5 @@ module com.example.javafxwithjdbc {
     exports com.example.javafxwithjdbc;
     exports com.example.javafxwithjdbc.controllers;
     opens com.example.javafxwithjdbc.controllers to javafx.fxml;
+    opens com.example.javafxwithjdbc.model.entities to javafx.base;
 }
