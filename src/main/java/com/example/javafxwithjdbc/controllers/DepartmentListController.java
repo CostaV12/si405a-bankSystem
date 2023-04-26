@@ -1,6 +1,7 @@
 package com.example.javafxwithjdbc.controllers;
 
 import com.example.javafxwithjdbc.Main;
+
 import com.example.javafxwithjdbc.model.entities.Department;
 import com.example.javafxwithjdbc.model.services.DepartmentService;
 import javafx.collections.FXCollections;

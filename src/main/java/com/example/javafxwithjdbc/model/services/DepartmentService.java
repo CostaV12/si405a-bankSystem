@@ -1,5 +1,7 @@
 package com.example.javafxwithjdbc.model.services;
 
+import com.example.javafxwithjdbc.model.dao.DaoFactory;
+import com.example.javafxwithjdbc.model.dao.DepartmentDao;
 import com.example.javafxwithjdbc.model.entities.Department;
 
 import java.util.ArrayList;
@@ -7,11 +9,8 @@ import java.util.List;
 
 public class DepartmentService {
 
+    private DepartmentDao dao = DaoFactory.createDepartmentDao();
     public List<Department> findAll() {
-        List<Department> list = new ArrayList<>();
-        list.add(new Department(1, "Books"));
-        list.add(new Department(2, "Computers"));
-        list.add(new Department(3, "Electronics"));
-        return list;
+        return dao.findAll();
     }
 }
