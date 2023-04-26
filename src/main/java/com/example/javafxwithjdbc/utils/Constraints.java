@@ -1,5 +1,6 @@
 package com.example.javafxwithjdbc.utils;
 
+
 import javafx.scene.control.TextField;
 
 public class Constraints {
@@ -27,4 +28,6 @@ public class Constraints {
             }
         });
     }
+
+
 }
