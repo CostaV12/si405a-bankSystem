@@ -2,6 +2,7 @@ package com.example.javafxwithjdbc.controllers;
 
 import com.example.javafxwithjdbc.Main;
 
+import com.example.javafxwithjdbc.listener.DataChangeListener;
 import com.example.javafxwithjdbc.model.entities.Department;
 import com.example.javafxwithjdbc.model.services.DepartmentService;
 import com.example.javafxwithjdbc.utils.Alerts;
@@ -27,7 +28,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DepartmentListController implements Initializable {
+public class DepartmentListController implements Initializable, DataChangeListener {
 
     private DepartmentService service;
 
@@ -87,6 +88,7 @@ public class DepartmentListController implements Initializable {
             DepartmentFormController controller = fxmlLoader.getController();
             controller.setDepartment(obj);
             controller.setDepartmentService(new DepartmentService());
+            controller.subscribeDataChangeListener(this);
             controller.updateFormData();
 
             Stage dialogStage = new Stage();
@@ -100,5 +102,10 @@ public class DepartmentListController implements Initializable {
         } catch (IOException e) {
             Alerts.ShowAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void onDataChange() {
+        updateTableView();
     }
 }

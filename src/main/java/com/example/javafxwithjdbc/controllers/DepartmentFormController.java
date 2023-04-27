@@ -1,5 +1,6 @@
 package com.example.javafxwithjdbc.controllers;
 
+import com.example.javafxwithjdbc.listener.DataChangeListener;
 import com.example.javafxwithjdbc.model.entities.Department;
 import com.example.javafxwithjdbc.model.services.DepartmentService;
 import com.example.javafxwithjdbc.utils.Alerts;
@@ -14,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DepartmentFormController implements Initializable {
@@ -21,6 +24,8 @@ public class DepartmentFormController implements Initializable {
     private Department entity;
 
     private DepartmentService service;
+
+    private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
     @FXML
     private TextField txtId;
@@ -37,6 +42,18 @@ public class DepartmentFormController implements Initializable {
     @FXML
     private Button btnCancel;
 
+    public void setDepartment(Department entity) {
+        this.entity = entity;
+    }
+
+    public void setDepartmentService(DepartmentService service) {
+        this.service = service;
+    }
+
+    public void subscribeDataChangeListener(DataChangeListener listener) {
+        dataChangeListeners.add(listener);
+    }
+
     @FXML
     public void onBtnSaveAction(ActionEvent event) {
         if (entity == null) {
@@ -48,11 +65,18 @@ public class DepartmentFormController implements Initializable {
         try {
             entity = getFormData();
             service.saveOrUpdate(entity);
+            notifyDataChangeListeners();
             Utils.currentStage(event).close();
         } catch (db.DbException e) {
             Alerts.ShowAlert("Error saving object", null, e.getMessage(), Alert.AlertType.ERROR);
         }
 
+    }
+
+    private void notifyDataChangeListeners() {
+        for (DataChangeListener listener : dataChangeListeners) {
+            listener.onDataChange();
+        }
     }
 
     private Department getFormData() {
@@ -67,14 +91,6 @@ public class DepartmentFormController implements Initializable {
     @FXML
     public void onBtnCancelAction(ActionEvent event) {
         Utils.currentStage(event).close();
-    }
-
-    public void setDepartment(Department entity) {
-        this.entity = entity;
-    }
-
-    public void setDepartmentService(DepartmentService service) {
-        this.service = service;
     }
 
     @Override
