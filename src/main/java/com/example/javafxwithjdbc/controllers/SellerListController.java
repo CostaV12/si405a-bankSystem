@@ -67,7 +67,7 @@ public class SellerListController implements Initializable, DataChangeListener {
     public void onBtNewAction(ActionEvent event) {
         Stage parentStage = Utils.currentStage(event);
         Seller obj = new Seller();
-//        createDialogForm(obj, "DepartmentForm.fxml", parentStage);
+        createDialogForm(obj, "SellerForm.fxml", parentStage);
     }
 
 
@@ -104,29 +104,29 @@ public class SellerListController implements Initializable, DataChangeListener {
         initRemoveButtons();
     }
 
-//    private void createDialogForm(Department obj, String absoluteName, Stage parentStage) {
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(absoluteName));
-//            Pane pane = fxmlLoader.load();
-//
-//            DepartmentFormController controller = fxmlLoader.getController();
-//            controller.setDepartment(obj);
-//            controller.setDepartmentService(new DepartmentService());
-//            controller.subscribeDataChangeListener(this);
-//            controller.updateFormData();
-//
-//            Stage dialogStage = new Stage();
-//            dialogStage.setTitle("Enter Department data");
-//            dialogStage.setScene(new Scene(pane));
-//            dialogStage.setResizable(false);
-//            dialogStage.initOwner(parentStage);
-//            dialogStage.initModality(Modality.WINDOW_MODAL);
-//            dialogStage.showAndWait();
-//
-//        } catch (IOException e) {
-//            Alerts.ShowAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
-//        }
-//    }
+    private void createDialogForm(Seller obj, String absoluteName, Stage parentStage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(absoluteName));
+            Pane pane = fxmlLoader.load();
+
+            SellerFormController controller = fxmlLoader.getController();
+            controller.setSeller(obj);
+            controller.setSellerService(new SellerService());
+            controller.subscribeDataChangeListener(this);
+            controller.updateFormData();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Enter Seller data");
+            dialogStage.setScene(new Scene(pane));
+            dialogStage.setResizable(false);
+            dialogStage.initOwner(parentStage);
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.showAndWait();
+
+        } catch (IOException e) {
+            Alerts.ShowAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 
     @Override
     public void onDataChange() {
@@ -145,9 +145,9 @@ public class SellerListController implements Initializable, DataChangeListener {
                     return;
                 }
                 setGraphic(button);
-//                button.setOnAction(
-//                        event -> createDialogForm(
-//                                obj, "DepartmentForm.fxml",Utils.currentStage(event)));
+                button.setOnAction(
+                        event -> createDialogForm(
+                                obj, "SellerForm.fxml",Utils.currentStage(event)));
             }
         });
     }
