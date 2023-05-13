@@ -1,4 +1,4 @@
-package db;
+package com.example.javafxwithjdbc.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;

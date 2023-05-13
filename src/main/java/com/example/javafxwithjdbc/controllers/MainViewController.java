@@ -1,8 +1,8 @@
 package com.example.javafxwithjdbc.controllers;
 
 import com.example.javafxwithjdbc.Main;
-import com.example.javafxwithjdbc.model.services.DepartmentService;
-import com.example.javafxwithjdbc.model.services.SellerService;
+import com.example.javafxwithjdbc.model.services.AccountService;
+import com.example.javafxwithjdbc.model.services.ClientService;
 import com.example.javafxwithjdbc.utils.Alerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,33 +22,33 @@ import java.util.function.Consumer;
 public class MainViewController implements Initializable {
 
     @FXML
-    private MenuItem menuItemSeller;
+    private MenuItem menuItemClient;
 
     @FXML
-    private MenuItem menuItemDepartment;
+    private MenuItem menuItemAccount;
 
     @FXML
     private MenuItem menuItemAbout;
 
     @FXML
-    public void onMenuItemSellerAction() {
-        loadView("SellerList.fxml", (SellerListController controller) -> {
-            controller.setSellerService(new SellerService());
-            controller.updateTableView();
-        });
-    }
-
-    @FXML
-    public void onMenuItemDepartmentAction() {
-        loadView("DepartmentList.fxml", (DepartmentListController controller) -> {
-            controller.setDepartmentService(new DepartmentService());
-            controller.updateTableView();
-        });
-    }
-
-    @FXML
     public void onMenuItemAboutAction() {
         loadView("About.fxml", x -> {});
+    }
+
+    @FXML
+    public void onMenuItemClientAction() {
+        loadView("ClientList.fxml", (ClientListController controller) -> {
+            controller.setClientService(new ClientService());
+            controller.updateTableView();
+        });
+    }
+
+    @FXML
+    public void onMenuItemAccountAction() {
+        loadView("AccountList.fxml", (AccountListController controller) -> {
+            controller.setAccountService(new AccountService());
+            controller.updateTableView();
+        });
     }
 
     @Override

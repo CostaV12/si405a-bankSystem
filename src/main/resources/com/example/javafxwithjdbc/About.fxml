@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -15,13 +16,35 @@
             <Insets bottom="10.0" left="20.0" top="10.0" />
          </padding>
       </Label>
-      <Label text="JavaFx Application demo">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by: " wrappingWidth="563.35693359375">
          <VBox.margin>
-            <Insets />
+            <Insets left="20.0" top="10.0" />
          </VBox.margin>
-         <padding>
-            <Insets left="20.0" />
-         </padding>
-      </Label>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gustavo Felipe Beck" wrappingWidth="563.35693359375">
+         <VBox.margin>
+            <Insets left="20.0" top="15.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Joao Victor Muniz de Lima" wrappingWidth="563.35693359375">
+         <VBox.margin>
+            <Insets left="20.0" top="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gabriel Lorenzo Usero Silva" wrappingWidth="563.35693359375">
+         <VBox.margin>
+            <Insets left="20.0" top="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thyago Oliveira" wrappingWidth="563.35693359375">
+         <VBox.margin>
+            <Insets left="20.0" top="5.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vinicius Costa dos Santos" wrappingWidth="563.35693359375">
+         <VBox.margin>
+            <Insets left="20.0" top="5.0" />
+         </VBox.margin>
+      </Text>
    </children>
 </VBox>

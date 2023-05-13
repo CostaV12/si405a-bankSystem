@@ -11,19 +11,19 @@
       <VBox prefHeight="324.0" prefWidth="486.0">
          <children>
             <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="Registration">
-                  <items>
-                    <MenuItem fx:id="menuItemSeller" mnemonicParsing="false" onAction="#onMenuItemSellerAction" text="Seller" />
-                        <MenuItem fx:id="menuItemDepartment" mnemonicParsing="false" onAction="#onMenuItemDepartmentAction" text="Department" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="About" />
-                  </items>
-                </Menu>
-              </menus>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Registration">
+                     <items>
+                        <MenuItem fx:id="menuItemClient" mnemonicParsing="false" onAction="#onMenuItemClientAction" text="Client" />
+                        <MenuItem fx:id="menuItemAccount" mnemonicParsing="false" onAction="#onMenuItemAccountAction" text="Account" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
             </MenuBar>
          </children>
       </VBox>

@@ -1,15 +1,16 @@
 package com.example.javafxwithjdbc.model.dao;
 
-import com.example.javafxwithjdbc.model.dao.impl.DepartmentDaoJDBC;
-import com.example.javafxwithjdbc.model.dao.impl.SellerDaoJDBC;
-import db.DB;
+import com.example.javafxwithjdbc.db.DB;
+import com.example.javafxwithjdbc.model.dao.impl.AccountDaoJDBC;
+import com.example.javafxwithjdbc.model.dao.impl.ClientDaoJDBC;
 
 public class DaoFactory {
-    public static SellerDao createSellerDao() {
-        return new SellerDaoJDBC(DB.getConnection());
+
+    public static ClientDao createClientDao() {
+        return new ClientDaoJDBC(DB.getConnection());
     }
 
-    public static DepartmentDao createDepartmentDao() {
-        return new DepartmentDaoJDBC(DB.getConnection());
+    public static AccountDao createAccountDao() {
+        return new AccountDaoJDBC(DB.getConnection());
     }
 }
